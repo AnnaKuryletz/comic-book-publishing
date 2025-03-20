@@ -5,9 +5,11 @@ from dotenv import load_dotenv
 from downland_comics import download_random_comic
 from utils import download_image
 
+
 def send_image(bot, chat_id, image_path):
     with open(image_path, "rb") as image:
         bot.send_photo(chat_id=chat_id, photo=image)
+
 
 def main():
     load_dotenv()
@@ -15,7 +17,9 @@ def main():
     chat_id = os.getenv("TELEGRAM_CHAT_ID")
 
     if not token or not chat_id:
-        print("Ошибка: Убедитесь, что TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID заданы в .env файле")
+        print(
+            "Ошибка: Убедитесь, что TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID заданы в .env файле"
+        )
         return
 
     bot = Bot(token=token)
@@ -37,6 +41,7 @@ def main():
 
     finally:
         comic_path.unlink(missing_ok=True)
+
 
 if __name__ == "__main__":
     main()
