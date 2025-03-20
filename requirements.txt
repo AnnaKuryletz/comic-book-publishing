@@ -1,0 +1,4 @@
+requests==2.32.3
+python-dotenv==1.0.0
+python-telegram-bot==13.13
+urllib3==1.26.8
